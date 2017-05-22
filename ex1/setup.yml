@@ -11,3 +11,16 @@
     git: 
       repo: "https://github.com/shimib/cdcourse.git"
       dest: "/home/ec2-user/cdcourse"
+      update: no
+  - name: install docker
+    yum: name=docker state=latest
+    become: yes
+  - name: add group docker to ec2-user
+    user:
+      name: ec2-user
+      groups: docker
+      append: yes
+    become: yes
+  - name: start docker service
+    become: yes
+    service: name=docker state=started
