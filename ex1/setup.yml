@@ -1,0 +1,13 @@
+- hosts: localhost
+  tasks:
+  - name: ensure git is at the latest version
+    yum: name=git state=latest
+    become: yes
+  - name: clone petclinic repo 
+    git: 
+      repo: "https://github.com/shimib/spring-petclinic.git"
+      dest: "/home/ec2-user/petclinic"
+  - name: clone cdcourse repo 
+    git: 
+      repo: "https://github.com/shimib/cdcourse.git"
+      dest: "/home/ec2-user/cdcourse"
