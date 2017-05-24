@@ -24,3 +24,9 @@
   - name: start docker service
     become: yes
     service: name=docker state=started
+  - name: download and unarchive maven
+    unarchive:
+      src: "http://apache.spd.co.il/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.tar.gz"
+      dest: /home/ec2-user
+      copy: no
+      creates: "/home/ec2-user/apache-maven-3.5.0"
