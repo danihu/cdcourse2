@@ -5,11 +5,11 @@
     become: yes
   - name: clone petclinic repo 
     git: 
-      repo: "https://github.com/shimib/spring-petclinic.git"
+      repo: "https://github.com/danihu/spring-petclinic.git"
       dest: "/home/ec2-user/petclinic"
   - name: clone cdcourse repo 
     git: 
-      repo: "https://github.com/shimib/cdcourse.git"
+      repo: "https://github.com/danihu/cdcourse2.git"
       dest: "/home/ec2-user/cdcourse"
       update: no
   - name: install docker
